@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Cantina
 {
-    public partial class frmSplash : Form
+    public partial class frmFuncionarios : Form
     {
         //Criando variáveis para controle do menu
         const int MF_BYCOMMAND = 0X400;
@@ -21,30 +21,14 @@ namespace Cantina
         static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
         [DllImport("user32")]
         static extern int GetMenuItemCount(IntPtr hWnd);
-        public frmSplash()
+
+
+        public frmFuncionarios()
         {
             InitializeComponent();
         }
 
-        private void tmrSplash_Tick(object sender, EventArgs e)
-        {
-           
-            if (pgbSplah.Maximum < 100)
-            {
-                pgbSplah.Value = pgbSplah.Value + 1;
-                lblValor.Text = pgbSplah.Value.ToString();                
-            }
-            else
-            {
-                frmLogin abrir = new frmLogin();
-                abrir.Show();
-                this.Hide();
-                tmrSplash.Enabled = false;
-            }
-
-        }
-
-        private void frmSplash_Load(object sender, EventArgs e)
+        private void frmFuncionarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;

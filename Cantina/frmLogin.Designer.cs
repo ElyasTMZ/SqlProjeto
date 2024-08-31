@@ -89,7 +89,6 @@ namespace Cantina
             this.txtSenha.PasswordChar = 'l';
             this.txtSenha.Size = new System.Drawing.Size(223, 25);
             this.txtSenha.TabIndex = 1;
-            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyDown);
             // 
             // btnEntrar

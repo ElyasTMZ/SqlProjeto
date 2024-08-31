@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-
 namespace Cantina
 {
     public partial class frmLogin : Form
@@ -38,10 +37,11 @@ namespace Cantina
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
-        public void LimparCampos()
+
+        public void limparCampos()
         {
             txtUsuario.Clear();
-            txtSenha.Clear();
+            txtSenha.Text = "";
             txtUsuario.Focus();
         }
 
@@ -52,7 +52,7 @@ namespace Cantina
             usuario = txtUsuario.Text;
             senha = txtSenha.Text;
 
-            if (usuario.Equals("etecia") && senha.Equals("123456"))
+            if (usuario.Equals("etecia") && senha.Equals("etecia"))
             {
                 frmMenuPrincipal abrir = new frmMenuPrincipal();
                 abrir.Show();
@@ -60,22 +60,21 @@ namespace Cantina
             }
             else
             {
-                MessageBox.Show("Usuário ou senha incorretos.", "mensagem do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                LimparCampos();
+                MessageBox.Show("Usuário ou senha incorretos.",
+                    "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                limparCampos();
             }
         }
 
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtSenha.Focus();
             }
-        }
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void txtSenha_KeyDown(object sender, KeyEventArgs e)

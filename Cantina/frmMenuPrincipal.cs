@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-
 namespace Cantina
 {
     public partial class frmMenuPrincipal : Form
@@ -22,6 +21,7 @@ namespace Cantina
         static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
         [DllImport("user32")]
         static extern int GetMenuItemCount(IntPtr hWnd);
+
         public frmMenuPrincipal()
         {
             InitializeComponent();
@@ -34,34 +34,11 @@ namespace Cantina
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVendas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEstoque_Click(object sender, EventArgs e)
-        {
-
+            frmLogin abrir = new frmLogin();
+            abrir.Show();
+            this.Hide();
         }
     }
 }
